@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Sérgio Gil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --bg-body-gradient: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%); --bg-card: rgba(17, 24, 39, 0.7); --text-main: #f9fafb; --text-muted: #9ca3af; --border-color: rgba(31, 41, 55, 0.6); --timeline-dot: #10b981; --input-bg: #111827; --input-border: #374151; --card-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.7); }
+        body { background: var(--bg-body-gradient); font-family: 'Inter', sans-serif; color: var(--text-main); min-height: 100vh; padding: 40px 24px; background-attachment: fixed; }
+        .glass-card { backdrop-filter: blur(16px); border: 1px solid var(--border-color); border-radius: 20px; box-shadow: var(--card-shadow); background-color: var(--bg-card); padding: 30px; }
+        .glass-header { backdrop-filter: blur(16px); border: 1px solid var(--border-color); border-radius: 20px; background-color: rgba(15, 23, 42, 0.85); padding: 20px 30px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+        .dash-title { font-size: 1.5rem; font-weight: 700; color: #ffffff; margin: 0; }
+        .section-title { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--text-main); margin-bottom: 25px; display: flex; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; }
+        .section-title i { color: var(--timeline-dot); }
+        .form-label { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; }
+        .form-control { background-color: var(--input-bg); border: 1px solid var(--input-border); border-radius: 12px; padding: 12px 16px; color: var(--text-main); transition: all 0.3s ease; }
+        .btn-custom { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #ffffff; border: none; border-radius: 12px; padding: 12px 24px; font-weight: 600; }
+        .nav-pills .nav-link { color: var(--text-muted); border-radius: 12px; padding: 14px 20px; font-weight: 500; text-align: left; margin-bottom: 8px; }
+        .nav-pills .nav-link.active { background-color: rgba(16, 185, 129, 0.1); color: var(--timeline-dot); border-color: rgba(16, 185, 129, 0.3); }
+        .exp-block { background: rgba(0,0,0,0.2); border: 1px solid var(--input-border); border-radius: 16px; padding: 25px; margin-bottom: 20px; }
+        .field-group { background: rgba(255,255,255,0.02); border-radius: 16px; padding: 20px; margin-bottom: 25px; border: 1px dashed var(--border-color); }
+    </style>
+</head>
+<body>
+
+<div class="container" style="max-width: 1200px;">
+    <div class="glass-header">
+        <div>
+            <h1 class="dash-title"><i class="bi bi-grid-1x2-fill me-2" style="color: var(--timeline-dot);"></i> Dashboard Admin</h1>
+        </div>
+        <div class="d-flex gap-3 align-items-center">
+            <a href="/" target="_blank" class="btn btn-outline-light btn-sm rounded-pill px-3">Ver Currículo</a>
+            <a href="/logout" class="btn btn-outline-danger btn-sm rounded-pill px-3">Sair</a>
+        </div>
+    </div>
+
+    <form action="/admin" method="POST" id="adminForm">
+        <div class="row g-4">
+            <div class="col-lg-3">
+                <div class="glass-card p-3 sticky-top" style="top: 20px;">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-pills-perfil" type="button"><i class="bi bi-person-badge me-2"></i> Perfil</button>
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-exp" type="button"><i class="bi bi-briefcase me-2"></i> Experiências</button>
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-edu" type="button"><i class="bi bi-mortarboard me-2"></i> Educação</button>
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-graficos" type="button"><i class="bi bi-bar-chart-fill me-2"></i> Gráficos & Skills</button>
+                    </div>
+                    <hr class="my-4" style="border-color: var(--border-color);">
+                    <div class="d-grid"><button type="submit" class="btn btn-custom">Publicar Alterações</button></div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="glass-card tab-content">
+                    <div class="tab-pane fade show active" id="v-pills-perfil">
+                        <div class="section-title">Informações Pessoais</div>
+                        <div class="field-group">
+                            <div class="row">
+                                <div class="col-md-6 mb-3"><label class="form-label">Nome Completo</label><input type="text" class="form-control" name="nome" value="<%= nome %>" required></div>
+                                <div class="col-md-6 mb-3"><label class="form-label">Cargo / Título</label><input type="text" class="form-control" name="cargo" value="<%= cargo %>" required></div>
+                            </div>
+                        </div>
+                        <div class="section-title mt-4">Dados de Contato</div>
+                        <div class="field-group mb-0">
+                            <div class="mb-3"><label class="form-label">E-mail</label><input type="email" class="form-control" name="email" value="<%= email %>" required></div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3"><label class="form-label">Telefone Exibição</label><input type="text" class="form-control" name="telefoneExibicao" value="<%= telefoneExibicao %>" required></div>
+                                <div class="col-md-6 mb-3"><label class="form-label">Telefone WhatsApp</label><input type="text" class="form-control" name="telefoneLink" value="<%= telefoneLink %>" required></div>
+                            </div>
+                            <div class="mb-2"><label class="form-label">Localização</label><input type="text" class="form-control" name="localizacao" value="<%= localizacao %>" required></div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-exp">
+                        <div class="d-flex justify-content-between mb-4 border-bottom pb-3"><div class="section-title mb-0">Histórico Profissional</div><button type="button" class="btn btn-sm btn-outline-info rounded-pill px-3" onclick="adicionarBloco('container-experiencias', 'exp')">Adicionar Experiência</button></div>
+                        <div id="container-experiencias">
+                            <% experiencias.forEach((exp) => { %>
+                                <div class="exp-block">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3"><label class="form-label">Período</label><input type="text" class="form-control" name="exp_periodo" value="<%= exp.periodo %>" required></div>
+                                        <div class="col-md-4 mb-3"><label class="form-label">Cargo</label><input type="text" class="form-control" name="exp_cargo" value="<%= exp.cargo %>" required></div>
+                                        <div class="col-md-4 mb-3"><label class="form-label">Empresa</label><input type="text" class="form-control" name="exp_empresa" value="<%= exp.empresa %>" required></div>
+                                    </div>
+                                    <div class="mb-1"><label class="form-label">Atividades</label><textarea class="form-control" name="exp_atividades" rows="4" required><%= exp.atividades.join('\n') %></textarea></div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-edu">
+                        <div class="d-flex justify-content-between mb-4 border-bottom pb-3"><div class="section-title mb-0">Formação Acadêmica</div><button type="button" class="btn btn-sm btn-outline-info rounded-pill px-3" onclick="adicionarBloco('container-formacao', 'form')">Adicionar</button></div>
+                        <div id="container-formacao" class="mb-5">
+                            <% formacao.forEach((item) => { %>
+                                <div class="exp-block p-3">
+                                    <div class="row">
+                                        <div class="col-md-3 mb-2"><label class="form-label">Período</label><input type="text" class="form-control" name="form_periodo" value="<%= item.periodo %>" required></div>
+                                        <div class="col-md-5 mb-2"><label class="form-label">Curso</label><input type="text" class="form-control" name="form_curso" value="<%= item.curso %>" required></div>
+                                        <div class="col-md-4 mb-2"><label class="form-label">Instituição</label><input type="text" class="form-control" name="form_inst" value="<%= item.instituicao %>" required></div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                        <div class="d-flex justify-content-between mb-4 border-bottom pb-3"><div class="section-title mb-0">Extra Curricular</div><button type="button" class="btn btn-sm btn-outline-info rounded-pill px-3" onclick="adicionarBloco('container-extra', 'extra')">Adicionar</button></div>
+                        <div id="container-extra">
+                            <% extracurricular.forEach((item) => { %>
+                                <div class="exp-block p-3">
+                                    <div class="row">
+                                        <div class="col-md-3 mb-2"><label class="form-label">Período</label><input type="text" class="form-control" name="extra_periodo" value="<%= item.periodo %>" required></div>
+                                        <div class="col-md-5 mb-2"><label class="form-label">Curso</label><input type="text" class="form-control" name="extra_curso" value="<%= item.curso %>" required></div>
+                                        <div class="col-md-4 mb-2"><label class="form-label">Instituição</label><input type="text" class="form-control" name="extra_inst" value="<%= item.instituicao %>" required></div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-graficos">
+                        <div class="d-flex justify-content-between mb-4 border-bottom pb-3"><div class="section-title mb-0">Carrossel de Tecnologias</div><button type="button" class="btn btn-sm btn-outline-info rounded-pill px-3" onclick="adicionarGrafico('container-tech', 'tech')">Adicionar</button></div>
+                        <div id="container-tech" class="row mb-5">
+                            <% tecnologias.forEach(tech => { %>
+                                <div class="col-md-4 mb-3 exp-block py-3">
+                                    <input type="text" class="form-control mb-2" name="tech_nome" value="<%= tech.nome %>" required>
+                                    <input type="text" class="form-control" name="tech_icone" value="<%= tech.icone %>" required>
+                                </div>
+                            <% }) %>
+                        </div>
+                        <div class="d-flex justify-content-between mb-4 border-bottom pb-3"><div class="section-title mb-0">Foco de Atuação</div><button type="button" class="btn btn-sm btn-outline-info rounded-pill px-3" onclick="adicionarGrafico('container-atuacao', 'atuacao')">Adicionar</button></div>
+                        <div id="container-atuacao" class="row mb-5">
+                            <% atuacao.forEach(item => { %>
+                                <div class="col-md-6 mb-3 exp-block py-3">
+                                    <input type="text" class="form-control mb-2" name="atuacao_nome" value="<%= item.nome %>" required>
+                                    <input type="number" class="form-control" name="atuacao_valor" value="<%= item.valor %>" min="0" max="100" required>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function adicionarBloco(containerId, tipo) {
+        const container = document.getElementById(containerId);
+        const div = document.createElement('div');
+        div.className = tipo === 'exp' ? 'exp-block' : 'exp-block p-3';
+        div.innerHTML = tipo === 'exp' ? `<div class="row"><div class="col-md-4 mb-3"><input type="text" class="form-control" name="exp_periodo"></div><div class="col-md-4 mb-3"><input type="text" class="form-control" name="exp_cargo"></div><div class="col-md-4 mb-3"><input type="text" class="form-control" name="exp_empresa"></div></div><textarea class="form-control" name="exp_atividades"></textarea>` : `<div class="row"><div class="col-md-3 mb-2"><input type="text" class="form-control" name="${tipo === 'form' ? 'form_periodo' : 'extra_periodo'}"></div><div class="col-md-5 mb-2"><input type="text" class="form-control" name="${tipo === 'form' ? 'form_curso' : 'extra_curso'}"></div><div class="col-md-4 mb-2"><input type="text" class="form-control" name="${tipo === 'form' ? 'form_inst' : 'extra_inst'}"></div></div>`;
+        container.appendChild(div);
+    }
+    function adicionarGrafico(containerId, tipo) {
+        const container = document.getElementById(containerId);
+        const div = document.createElement('div');
+        div.className = 'col-md-4 mb-3 exp-block py-3';
+        div.innerHTML = `<input type="text" class="form-control mb-2" name="${tipo}_nome"><input type="text" class="form-control" name="${tipo}_icone">`;
+        container.appendChild(div);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Restrito - Sérgio Gil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-body-gradient: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+            --bg-card: rgba(17, 24, 39, 0.7); 
+            --text-main: #f9fafb;
+            --border-color: rgba(31, 41, 55, 0.6);
+            --timeline-dot: #10b981; 
+            --input-bg: #111827;
+            --input-border: #374151;
+            --card-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.7);
+        }
+        body { background: var(--bg-body-gradient); font-family: 'Inter', sans-serif; color: var(--text-main); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .content-card { backdrop-filter: blur(16px); border: 1px solid var(--border-color); border-radius: 24px; box-shadow: var(--card-shadow); background-color: var(--bg-card); padding: 40px; width: 100%; max-width: 450px; }
+        .section-title { font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--text-main); margin-bottom: 30px; display: flex; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; }
+        .section-title i { color: var(--timeline-dot); }
+        .form-label { font-size: 0.85rem; font-weight: 600; color: var(--text-main); margin-bottom: 8px; }
+        .form-control { background-color: var(--input-bg); border: 1px solid var(--input-border); border-radius: 14px; padding: 14px 18px; color: var(--text-main); }
+        .form-control:focus { background-color: var(--bg-card); border-color: var(--timeline-dot); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15); color: var(--text-main); }
+        .btn-custom { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #ffffff; border: none; border-radius: 14px; padding: 14px; font-weight: 600; transition: all 0.3s ease; }
+        .btn-custom:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(16, 185, 129, 0.4); color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="content-card">
+        <div class="section-title"><i class="bi bi-shield-lock-fill me-2"></i> Área Restrita</div>
+        
+        <% if (erro) { %>
+            <div class="alert alert-danger" style="background-color: rgba(220, 53, 69, 0.1); border-color: #dc3545; color: #ff6b6b; border-radius: 12px;"><%= erro %></div>
+        <% } %>
+
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label class="form-label"><i class="bi bi-person me-1"></i> Usuário</label>
+                <input type="text" class="form-control" name="usuario" placeholder="Digite seu usuário" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label"><i class="bi bi-key me-1"></i> Senha</label>
+                <input type="password" class="form-control" name="senha" placeholder="••••••••" required>
+            </div>
+
+            <div class="d-grid gap-3">
+                <button type="submit" class="btn btn-custom"><i class="bi bi-box-arrow-in-right me-2"></i>Acessar Painel</button>
+                <a href="/" class="btn btn-outline-light rounded-4" style="border-radius: 14px !important; padding: 12px;">Voltar ao Currículo</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
