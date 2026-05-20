@@ -1,0 +1,176 @@
+{
+  "nome": "Sérgio Gil",
+  "cargo": "Gestor de TI | Analista de Marketing Digital | Desenvolvedor Web",
+  "email": "sergil@sapo.pt",
+  "telefoneLink": "+5521988525110",
+  "telefoneExibicao": "(21) 98852-5110",
+  "localizacao": "Niterói - RJ",
+  "experiencias": [
+    {
+      "periodo": "Setembro 2025 - Presente",
+      "cargo": "Analista de Marketing",
+      "empresa": "ZeroZero.pt (Portugal) Home Office",
+      "atividades": [
+        "Elaborar Campanhas Digitais.",
+        "Elaborar Estratégias de Divulgação Meta ads e Google Adwords.",
+        "Gerenciar Projetos.",
+        "Definir Estratégia Semanais de Divulgação."
+      ]
+    },
+    {
+      "periodo": "Março 2025 - Junho 2025",
+      "cargo": "Coordenador de Laboratório",
+      "empresa": "UNIVERSO - Universidade Salgado de Oliveira",
+      "atividades": [
+        "Gestão de equipe de TI.",
+        "Convocar e presidir reuniões da Coordenação de Laboratórios.",
+        "Suporte Avançado e Planejamento estratégico das operações.",
+        "Gestão de recursos humanos e materiais."
+      ]
+    },
+    {
+      "periodo": "Fevereiro 2025 - Março 2025",
+      "cargo": "Gestor de TI",
+      "empresa": "Hospital de Icaraí",
+      "atividades": [
+        "Gestão de equipe de TI.",
+        "Suporte Avançado ERP swmanager.",
+        "Suporte Avançado ASL."
+      ]
+    },
+    {
+      "periodo": "Março 2024 - Dezembro 2024",
+      "cargo": "Gestor de TI",
+      "empresa": "Hospital de Clínicas do Ingá",
+      "atividades": [
+        "Gestão de equipe de TI e Suporte Avançado ERP Tecnoarte ASA.",
+        "Suporte Avançado MediLab e Gerenciamento de servidores de WEBMAIL.",
+        "Gerenciamento de servidores de Dados."
+      ]
+    },
+    {
+      "periodo": "Agosto 2023 - Fevereiro 2024",
+      "cargo": "Analista de Marketing",
+      "empresa": "12 MLComunicação",
+      "atividades": [
+        "Elaborar Campanhas Digitais.",
+        "Elaborar Estratégias de Divulgação Facebook ads e Google Adwords.",
+        "Gerenciar Projetos e definir estratégias semanais."
+      ]
+    },
+    {
+      "periodo": "Março 2022 - Maio 2023",
+      "cargo": "Analista de Marketing",
+      "empresa": "Franco Sport Rally (Portugal) Home Office",
+      "atividades": [
+        "Levantamento de Requisitos e Manutenção do Site da Empresa.",
+        "Design de Material Publicitário Impresso e Digital.",
+        "Consultoria estratégica em Redes Sociais (Google Adwords e Facebook Ads).",
+        "Relatórios mensais e levantamento de entrada de clientes.",
+        "Elaboração de Email Marketing estratégico."
+      ]
+    },
+    {
+      "periodo": "Novembro 2020 - Março 2022",
+      "cargo": "Gestor de TI",
+      "empresa": "Lopes Self – Imobiliária",
+      "atividades": [
+        "Elaborar o planejamento estratégico e administrar os processos.",
+        "Gerenciar a equipe de TI e suporte aos projetos.",
+        "Definir a governança e garantir a continuidade dos serviços e segurança da informação.",
+        "Solicitar e distribuir os recursos na área."
+      ]
+    },
+    {
+      "periodo": "Novembro 2018 - 2020",
+      "cargo": "Administrador de Redes",
+      "empresa": "TENGEL – Técnica de Engenharia",
+      "atividades": [
+        "Instalação e Manutenção dos softwares da empresa e Monitoramento de Rede.",
+        "Suporte Técnico / Treinamento ao Usuário e configuração de servidor Windows.",
+        "Planejamento, Implementação de Infraestrutura e soluções em TI.",
+        "Gerenciamento de servidores [DHCP, DNS, VPN AD e FIREWALL] e políticas de segurança.",
+        "Suporte remoto utilizando ferramentas de acesso corporativo [LOGMEIN]."
+      ]
+    },
+    {
+      "periodo": "Julho 2018 - Agosto 2018",
+      "cargo": "Gerente Administrativo",
+      "empresa": "Chorote Grill (Bogotá - Colombia)",
+      "atividades": [
+        "Gerência de compra de produtos.",
+        "Gestão de pessoas."
+      ]
+    },
+    {
+      "periodo": "Janeiro 2012 - Dezembro 2017",
+      "cargo": "Administrador de Redes e Analista de Mídias Sociais",
+      "empresa": "Unipsico Rio",
+      "atividades": [
+        "Instalação, monitoramento de redes e servidores Windows [DHCP, DNS, VPN AD e FIREWALL].",
+        "Design, manutenção de portais da empresa e peças publicitárias online/impressas.",
+        "Consultoria em Google AdWords, Facebook Ads e e-mail marketing analítico."
+      ]
+    },
+    {
+      "periodo": "Setembro 2011 - Dezembro 2011",
+      "cargo": "Programador ASP",
+      "empresa": "Canal Energia",
+      "atividades": [
+        "Programação base em sistemas legados ASP, HTML e JavaScript.",
+        "Levantamento de Requisitos e Manutenção estrutural de Sites da Empresa."
+      ]
+    }
+  ],
+  "formacao": [
+    {
+      "periodo": "Dezembro 2016",
+      "curso": "Pós-Graduação em Gerência de Redes",
+      "instituicao": "UFRJ - Universidade Federal do Rio de Janeiro"
+    },
+    {
+      "periodo": "Dezembro 2010",
+      "curso": "Bacharel em Análise de Sistemas",
+      "instituicao": "Universidade Estácio de Sá"
+    }
+  ],
+  "extracurricular": [
+    {
+      "periodo": "2018 - Concluído",
+      "curso": "Curso Técnico em Logística",
+      "instituicao": "SENAI"
+    },
+    {
+      "periodo": "2017",
+      "curso": "ESL (English as a Second Language)",
+      "instituicao": "Mercer County Community College NJ"
+    }
+  ],
+  "tecnologias": [
+    { "nome": "Node.js", "icone": "bi-code-slash" },
+    { "nome": "ReactJS", "icone": "bi-filetype-jsx" },
+    { "nome": "Bootstrap 5", "icone": "bi-bootstrap" },
+    { "nome": "Meta Ads", "icone": "bi-megaphone" },
+    { "nome": "Google Adwords", "icone": "bi-google" },
+    { "nome": "Photoshop", "icone": "bi-palette" },
+    { "nome": "Gestão de TI", "icone": "bi-diagram-3" },
+    { "nome": "SQL Server", "icone": "bi-database" }
+  ],
+  "atuacao": [
+    { "nome": "Gestão de TI", "valor": 45 },
+    { "nome": "Marketing Digital", "valor": 35 },
+    { "nome": "Dev Web", "valor": 20 }
+  ],
+  "comportamental": [
+    { "nome": "Liderança", "valor": 95 },
+    { "nome": "Estratégia", "valor": 90 },
+    { "nome": "Segurança", "valor": 95 },
+    { "nome": "Performance", "valor": 88 },
+    { "nome": "Resiliência", "valor": 92 }
+  ],
+  "proficiencia": [
+    { "nome": "Infraestrutura de Redes & Segurança", "valor": 95 },
+    { "nome": "Tráfego Pago & Meta/Google Ads", "valor": 90 },
+    { "nome": "Desenvolvimento Web (Front & Back)", "valor": 85 }
+  ]
+}
