@@ -1,22 +1,91 @@
+require("dotenv").config();
 const express = require("express");
 const fs = require("fs");
 const session = require("express-session");
+const multer = require("multer");
+const path = require("path");
 const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public")); // Permite acessar imagens e arquivos públicos
+
+// Configuração do Multer para upload da foto
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const dir = "./public/uploads";
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true }); // Cria a pasta se não existir
+    }
+    cb(null, dir);
+  },
+  filename: function (req, file, cb) {
+    cb(null, "foto-perfil-" + Date.now() + path.extname(file.originalname));
+  },
+});
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 5 * 1024 * 1024 }, // Limite de 5MB para uploads
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = /jpeg|jpg|png|gif|webp/;
+    const extname = allowedTypes.test(
+      path.extname(file.originalname).toLowerCase(),
+    );
+    const mimetype = allowedTypes.test(file.mimetype);
+    if (mimetype && extname) {
+      return cb(null, true);
+    }
+    cb(new Error("Apenas imagens são permitidas!"));
+  },
+});
 
 app.use(
   session({
-    secret: "chave_secreta_do_meu_site_123",
+    secret: process.env.SESSION_SECRET || "chave_secreta_do_meu_site_123",
     resave: false,
     saveUninitialized: false,
   }),
 );
 
 function lerDados() {
-  const dadosBrutos = fs.readFileSync("dados.json", "utf8");
-  return JSON.parse(dadosBrutos);
+  try {
+    let dados = {};
+    if (fs.existsSync("dados.json")) {
+      const dadosBrutos = fs.readFileSync("dados.json", "utf8");
+      dados = JSON.parse(dadosBrutos);
+    }
+
+    // Previne que a página quebre garantindo propriedades essenciais
+    dados.nome = dados.nome || "";
+    dados.email = dados.email || "";
+    dados.cargo = dados.cargo || "";
+    dados.telefoneExibicao = dados.telefoneExibicao || "";
+    dados.telefoneLink = dados.telefoneLink || "";
+    dados.localizacao = dados.localizacao || "";
+
+    dados.tecnologias = dados.tecnologias || [];
+    dados.estatisticas = dados.estatisticas || [];
+    dados.proficiencia = dados.proficiencia || [];
+    dados.formacao = dados.formacao || [];
+    dados.extracurricular = dados.extracurricular || [];
+    dados.experiencias = dados.experiencias || [];
+    dados.atuacao = dados.atuacao || [];
+    dados.comportamental = dados.comportamental || [];
+
+    return dados;
+  } catch (erro) {
+    console.error("Erro ao ler dados.json:", erro);
+    return {
+      tecnologias: [],
+      estatisticas: [],
+      proficiencia: [],
+      formacao: [],
+      extracurricular: [],
+      experiencias: [],
+      atuacao: [],
+      comportamental: [],
+    };
+  }
 }
 
 function verificarAutenticacao(req, res, next) {
@@ -43,7 +112,10 @@ app.get("/login", (req, res) => {
 
 app.post("/login", (req, res) => {
   const { usuario, senha } = req.body;
-  if (usuario === "admin" && senha === "123456") {
+  const adminUser = process.env.ADMIN_USER || "admin";
+  const adminPass = process.env.ADMIN_PASSWORD || "123456";
+
+  if (usuario === adminUser && senha === adminPass) {
     req.session.logado = true;
     res.redirect("/admin");
   } else {
@@ -62,7 +134,7 @@ app.get("/admin", verificarAutenticacao, (req, res) => {
 });
 
 // PROCESSAMENTO DINÂMICO DO FORMULÁRIO DO ADMIN
-app.post("/admin", verificarAutenticacao, (req, res) => {
+app.post("/admin", verificarAutenticacao, upload.single("foto"), (req, res) => {
   const {
     nome,
     email,
@@ -104,13 +176,22 @@ app.post("/admin", verificarAutenticacao, (req, res) => {
     }
   }
 
+  // Lê os dados atuais para não perder a foto se o usuário não fizer um novo upload
+  const dadosAtuais = lerDados();
+  let caminhoFoto = dadosAtuais.foto || "";
+  if (req.file) {
+    caminhoFoto = "/uploads/" + req.file.filename;
+  }
+
   const novosDados = {
+    ...dadosAtuais, // Mantém os dados antigos que não são editados no form (ex: tecnologias)
     nome,
     email,
     cargo,
     telefoneExibicao,
     telefoneLink,
     localizacao,
+    foto: caminhoFoto,
     experiencias, // injeta o novo array estruturado
   };
 
