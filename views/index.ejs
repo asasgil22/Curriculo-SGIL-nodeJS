@@ -62,8 +62,6 @@
         .profile-img { width: 120px; height: 120px; object-fit: cover; border: 4px solid rgba(255,255,255,0.1); border-radius: 50%; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transform-style: preserve-3d; }
         
         .header-title { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; color: var(--text-header) !important; }
-        
-        /* Título estático corrigido para cor cinza suave (muted) igual ao anexo */
         .header-subtitle { color: var(--text-muted); font-size: 1.3rem; font-weight: 500; margin-bottom: 12px; }
         
         .contact-pill { background-color: rgba(255,255,255,0.08); color: #f8fafc; padding: 8px 18px; border-radius: 30px; font-size: 0.85rem; display: inline-block; margin-right: 10px; margin-top: 12px; text-decoration: none; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
@@ -135,7 +133,7 @@
     <div class="card header-card" data-aos="fade-down">
         <div class="row align-items-center text-center text-md-start">
             <div class="col-md-auto mb-4 mb-md-0 pe-md-4">
-                <img src="<%= typeof foto !== 'undefined' && foto ? foto : 'https://media.licdn.com/dms/image/v2/D4D03AQFFUGOWZq99eA/profile-displayphoto-crop_800_800/B4DZ49IDv2KAAI-/0/1779141985785?e=1780531200&v=beta&t=nhqjBOUx95K8WwqDIHwiz4trrtl13I2bSt59WeseVvE' %>" alt="<%= typeof nome !== 'undefined' ? nome : 'Perfil' %>" class="profile-img" data-tilt data-tilt-scale="1.05" data-tilt-max="15">
+                <img src="<%= typeof fotoUrl !== 'undefined' && fotoUrl ? fotoUrl : 'https://media.licdn.com/dms/image/v2/D4D03AQFFUGOWZq99eA/profile-displayphoto-crop_800_800/B4DZ49IDv2KAAI-/0/1779141985785?e=1780531200&v=beta&t=nhqjBOUx95K8WwqDIHwiz4trrtl13I2bSt59WeseVvE' %>" alt="<%= nome %>" class="profile-img" data-tilt data-tilt-scale="1.05" data-tilt-max="15">
             </div>
             <div class="col-md">
                 <h1 class="header-title"><%= nome %></h1>
@@ -149,8 +147,12 @@
                 </div>
             </div>
             <div class="col-md-auto mt-4 mt-md-0 d-flex flex-column flex-sm-row gap-2 justify-content-center secao-botoes-ignorar">
-                <button onclick="baixarCurriculoPDF()" class="btn btn-outline-light rounded-pill px-4 py-2"><i class="bi bi-file-earmark-pdf-fill me-2"></i>Baixar PDF</button>
-                <a href="#contato" class="btn btn-outline-light rounded-pill px-4 py-2">Fale Comigo</a>
+                <button onclick="baixarCurriculoPDF()" class="btn btn-outline-light rounded-pill px-4 py-2">
+                    <i class="bi bi-file-earmark-pdf-fill me-2"></i>Baixar PDF
+                </button>
+                <a href="#contato" class="btn btn-outline-light rounded-pill px-4 py-2">
+                    <i class="bi bi-mailbox me-2"></i>Fale Comigo
+                </a>
             </div>
         </div>
     </div>
