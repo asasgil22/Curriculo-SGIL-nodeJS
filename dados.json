@@ -1,11 +1,10 @@
 {
   "nome": "Sérgio Gil",
-  "email": "sergil@sapo.pt",
   "cargo": "Gestor de TI | Analista de Marketing Digital | Desenvolvedor Web",
-  "telefoneExibicao": "(21) 98852-5110",
+  "email": "sergil@sapo.pt",
   "telefoneLink": "+5521988525110",
+  "telefoneExibicao": "(21) 98852-5110",
   "localizacao": "Niterói - RJ",
-  "foto": "/uploads/foto-perfil-1780974348126.jpeg",
   "experiencias": [
     {
       "periodo": "Setembro 2025 - Presente",
@@ -123,11 +122,135 @@
       ]
     }
   ],
-  "tecnologias": [],
-  "estatisticas": [],
-  "proficiencia": [],
-  "formacao": [],
-  "extracurricular": [],
-  "atuacao": [],
-  "comportamental": []
+  "formacao": [
+    {
+      "periodo": "Dezembro 2016",
+      "curso": "Pós-Graduação em Gerência de Redes",
+      "instituicao": "UFRJ - Universidade Federal do Rio de Janeiro"
+    },
+    {
+      "periodo": "Dezembro 2010",
+      "curso": "Bacharel em Análise de Sistemas",
+      "instituicao": "Universidade Estácio de Sá"
+    }
+  ],
+  "extracurricular": [
+    {
+      "periodo": "2018 - Concluído",
+      "curso": "Curso Técnico em Logística",
+      "instituicao": "SENAI"
+    },
+    {
+      "periodo": "2017",
+      "curso": "ESL (English as a Second Language)",
+      "instituicao": "Mercer County Community College NJ"
+    }
+  ],
+  "tecnologias": [
+    {
+      "nome": "Node.js",
+      "icone": "bi-code-slash"
+    },
+    {
+      "nome": "ReactJS",
+      "icone": "bi-filetype-jsx"
+    },
+    {
+      "nome": "Bootstrap 5",
+      "icone": "bi-bootstrap"
+    },
+    {
+      "nome": "Meta Ads",
+      "icone": "bi-megaphone"
+    },
+    {
+      "nome": "Google Adwords",
+      "icone": "bi-google"
+    },
+    {
+      "nome": "Photoshop",
+      "icone": "bi-palette"
+    },
+    {
+      "nome": "Gestão de TI",
+      "icone": "bi-diagram-3"
+    },
+    {
+      "nome": "SQL Server",
+      "icone": "bi-database"
+    }
+  ],
+  "atuacao": [
+    {
+      "nome": "Gestão de TI",
+      "valor": 45
+    },
+    {
+      "nome": "Marketing Digital",
+      "valor": 35
+    },
+    {
+      "nome": "Dev Web",
+      "valor": 20
+    }
+  ],
+  "comportamental": [
+    {
+      "nome": "Liderança",
+      "valor": 95
+    },
+    {
+      "nome": "Estratégia",
+      "valor": 90
+    },
+    {
+      "nome": "Segurança",
+      "valor": 95
+    },
+    {
+      "nome": "Performance",
+      "valor": 88
+    },
+    {
+      "nome": "Resiliência",
+      "valor": 92
+    }
+  ],
+  "proficiencia": [
+    {
+      "nome": "Infraestrutura de Redes & Segurança",
+      "valor": 95
+    },
+    {
+      "nome": "Tráfego Pago & Meta/Google Ads",
+      "valor": 90
+    },
+    {
+      "nome": "Desenvolvimento Web (Front & Back)",
+      "valor": 85
+    }
+  ],
+  "credenciais": {
+    "usuario": "admin",
+    "senha": "Sog+123+#"
+  },
+  "fotoUrl": "/uploads/perfil-1780976112632.jpeg",
+  "estatisticas": [
+    {
+      "numero": "+14",
+      "label": "Anos de Bagagem"
+    },
+    {
+      "numero": "2",
+      "label": "Hospitais Liderados"
+    },
+    {
+      "numero": "3",
+      "label": "Países Atendidos"
+    },
+    {
+      "numero": "100%",
+      "label": "Multidisciplinar"
+    }
+  ]
 }
